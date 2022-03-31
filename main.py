@@ -16,7 +16,7 @@ h=H/2
 Horizontal=1
 half_Horizontal=0.5
 Longitudinal=2
-dict={
+dict={              //This part is written by me and it is used to make a hash map of the characters
     'g':(0,0),
     'v':(0,-Longitudinal),
     'h':(Horizontal,0),
@@ -47,14 +47,14 @@ dict={
 
 
 
-def normal_distribution(x):
+def normal_distribution(x):             //This function is written by me and it is used to return a random point
     mean=np.array(dict[x])
     conv=np.array([[0.01,-0.01],[-0.01,0.01]])
     axis = np.random.multivariate_normal(mean=mean, cov=conv, size=1)
     list=axis[0].tolist()
     return list
 
-def mid_point(x,y):
+def mid_point(x,y):                 //This function is written by me and it is used to calculate the mid point of two points
     x1=x[0]
     x2=x[1]
     y1=y[0]
@@ -71,7 +71,7 @@ def mid_point(x,y):
     return (midx+y1,midy+y2)
 
 
-def min_jerk(pos=None, dur=None, sen=None,vel=None, acc=None, psg=None):
+def min_jerk(pos=None, dur=None, sen=None,vel=None, acc=None, psg=None):    //This function is written by me and it is used to compute minimum jerk
 
     N = pos.shape[0]					# number of point
     D = pos.shape[1]					# dimensionality
@@ -121,11 +121,8 @@ def min_jerk(pos=None, dur=None, sen=None,vel=None, acc=None, psg=None):
     plt.savefig('D:/picture/22.jpg',figsize=[3,10])
     return trj, psg
 
-################################################################
-###### Compute jerk cost
-################################################################
 
-def mjCOST(t, x, v0, a0, t0):
+def mjCOST(t, x, v0, a0, t0):       //This function is written by me and it is used to compute trajectory cost
 
     N = max(x.shape)
     D = min(x.shape)
@@ -153,11 +150,9 @@ def mjCOST(t, x, v0, a0, t0):
 
     return J
 
-################################################################
-###### Compute trajectory
-################################################################
 
-def mjTRJ(tx, x, v0, a0, t0, P):
+
+def mjTRJ(tx, x, v0, a0, t0, P):            //This function is written by me and it is used to compute trajectory
 
     N = max(x.shape)
     D = min(x.shape)
@@ -198,11 +193,9 @@ def mjTRJ(tx, x, v0, a0, t0, P):
 
     return X
 
-################################################################
-###### Compute intermediate velocities and accelerations
-################################################################
 
-def mjVelAcc(t, x, v0, a0, t0):
+
+def mjVelAcc(t, x, v0, a0, t0): //This function is written by me and it is used to compute intermediate velocities and accelerations
 
     N = max(x.shape)
     D = min(x.shape)
@@ -273,7 +266,7 @@ def mjVelAcc(t, x, v0, a0, t0):
 def dis(x,y):
     return (x[0]-y[0])**2+(x[1]-y[1])**2
 
-def generate_keyboard(currentAxis):
+def generate_keyboard(currentAxis):                 //This function is written by me and it is used to generate the fake keyboard
     rect1=patches.Rectangle((-0.5,-1),1,2,linewidth=2,edgecolor='r',facecolor='none')
     rect2=patches.Rectangle((-1.5,-1),1,2,linewidth=2,edgecolor='r',facecolor='none')
     rect3=patches.Rectangle((-2.5,-1),1,2,linewidth=2,edgecolor='r',facecolor='none')
@@ -353,7 +346,7 @@ def generate_keyboard(currentAxis):
     currentAxis.add_patch(rect25)
     currentAxis.add_patch(rect26)
 
-sentence=input()
+sentence=input()        //This part is written by me and it is used to handle all the points
 index=0
 print(len(sentence))
 temp=[]
