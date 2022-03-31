@@ -1,4 +1,4 @@
-package com.example.magickeyboard.Activities;
+package com.example.magickeyboard.Activities;   //This part is mainly written by me 
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -135,7 +135,7 @@ public class Typing extends AppCompatActivity {
         return target.charAt(index);
     }
 
-    private void updateDisplay(TextView targetView, String label, String value){
+    private void updateDisplay(TextView targetView, String label, String value){    //This main function is written by me and used to draw the keyboard and record the data
         String tmp = label + ": " + value;
         Spannable display = new SpannableString(tmp);
         display.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.colorPrimary)), 0, label.length() + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -317,7 +317,7 @@ public class Typing extends AppCompatActivity {
         }
     }
 
-    Runnable socketService = new Runnable(){
+    Runnable socketService = new Runnable(){                //This function is written by me and it is used to transfer data between the android app and the server
         private Socket socket = null;
         private BufferedReader in = null;
         private PrintWriter out = null;
@@ -630,7 +630,7 @@ public class Typing extends AppCompatActivity {
     }
     // HW END
 
-    private String processPoints(){
+    private String processPoints(){                         //This function is written by me and it is used to process the given points.
         String result = "";
         float x, y, original_x, original_y;
         for (Point point : points) {
@@ -697,7 +697,7 @@ public class Typing extends AppCompatActivity {
         return first_letter;
     }
 
-    private void labelsInitialize(){
+    private void labelsInitialize(){                //This sentence is partly written by me and it is used to initialize labels
         // restore all basic information (about the test and subject) collected in the previous activities
         Intent intent = getIntent();
         FullInformation = getIntent().getExtras();
@@ -829,7 +829,7 @@ public class Typing extends AppCompatActivity {
         getIntent().putExtras(editMode);
     }
 
-    public void skip10Handler(View view){
+    public void skip10Handler(View view){                   //This function is written by me and it is used to skip next 10 sentences
         if ((currentPhraseNum + 10) > testPhrases.size() - 1) return;
         currentPhraseNum += 10;
 
@@ -845,7 +845,7 @@ public class Typing extends AppCompatActivity {
         if (isAutoCommitting) clearAutoCommitInfo();
     }
 
-    public void skipHandler(View view){
+    public void skipHandler(View view){                     //This function is written by me and it is used to skip next sentences
         if ((currentPhraseNum + 1) > testPhrases.size() - 1) return;
         currentPhraseNum += 1;
 
@@ -861,7 +861,7 @@ public class Typing extends AppCompatActivity {
         if (isAutoCommitting) clearAutoCommitInfo();
     }
 
-    public void nextHandler(View view){
+    public void nextHandler(View view){                     //This function is written by me and it is used to go to next sentences
         // update target phrase display and progress
         if ((currentPhraseNum + 1) > testPhrases.size() - 1) return;
         currentPhraseNum += 1;
@@ -876,7 +876,7 @@ public class Typing extends AppCompatActivity {
         if (isAutoCommitting) clearAutoCommitInfo();
     }
 
-    private String getNearestLetter(float x, float y)
+    private String getNearestLetter(float x, float y)   //This function is written by me and it is used to get the nearest letter given a coordinator.
     {
         if(y<-0.5*Longitudinal) {
             if ((-0.5 * Horizontal <x||-0.5*Horizontal==x)&&x <0.5*Horizontal)
@@ -1002,7 +1002,7 @@ public class Typing extends AppCompatActivity {
         getIntent().replaceExtras(editMode);
     }
 
-    private double minimum_jerk()
+    private double minimum_jerk()   //This function is written by me and it is used to calculate the minimum jerk
     {
         ArrayList<Double> v = new ArrayList<Double>();
         for (int i = 0 ; i < 5; i++) {
@@ -1018,7 +1018,7 @@ public class Typing extends AppCompatActivity {
         return jerk;
     }
 
-    private double[] minimum_v()
+    private double[] minimum_v()    //This function is written by me and it is used to calculate the velocity
     {
         double[] min_v=new double[4];
 
@@ -1036,7 +1036,7 @@ public class Typing extends AppCompatActivity {
         return min_v;
     }
 
-    private void clearJerkVariables(){
+    private void clearJerkVariables(){      //This function is written by me and it is used tho clear all the variables
         jerk_sum=0;
         v_sum=0;
         NumberOfJerk=0;
