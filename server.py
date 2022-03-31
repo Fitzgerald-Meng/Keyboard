@@ -41,7 +41,7 @@ def extract_compressed_string(input_string):
     return result
 
 
-def expand_to_500(input_string):
+def expand_to_500(input_string):            //This function is written by me and it is used to make the sentence whose length is less than 500 to 500
     if len(input_string) >= 500:
         raise Exception('EXPAND_TO_500: The length should not exceed 500.')
 
@@ -83,7 +83,7 @@ def expand_to_500(input_string):
     return result
 
 
-def cut_to_500(input_string):
+def cut_to_500(input_string):               //This function is written by me and it is used to make the input string whose length is more than 500 to 500
     if len(input_string) <= 500:
         raise Exception('CUT_TO_500: The length should exceed 500.')
 
@@ -133,7 +133,7 @@ def format_process(standard_string):
     return result
 
 
-def clean_message(input_string):
+def clean_message(input_string):            //This function is written by me and it is used to clean the message and replace all the write spaces
     split_content = input_string.split(" ##")
 
     result = ""
