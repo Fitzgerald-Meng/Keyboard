@@ -221,7 +221,7 @@ def single_message_process(single_message):
     return output_messages
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":              //This main function is partly written by me and it is used to accept the data from the android app 
     tokenizer = BertTokenizerFast.from_pretrained("trained_model/checkpoint-369000")
     model = EncoderDecoderModel.from_pretrained("trained_model/checkpoint-369000")
     model.to("cuda")
